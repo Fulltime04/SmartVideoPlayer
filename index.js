@@ -1,4 +1,5 @@
 alert("Praise the LORD")
+alert("it's well with my soul")
 let videosArr = []
 let ShakesSphere = document.querySelector(".ShakesSphere");
 

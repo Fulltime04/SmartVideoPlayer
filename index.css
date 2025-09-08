@@ -154,10 +154,7 @@ body{
     font-size: 3rem;
 }
 
-.play{
-    font-size: 2em;
-    color: white;
-}
+
 
 
 
@@ -379,8 +376,6 @@ body{
             i{
                 font-size: 1.8em;
                 color: white;
-
-
             }
             span{
                 font-size: 1em;
