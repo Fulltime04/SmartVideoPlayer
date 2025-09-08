@@ -1,0 +1,209 @@
+*{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+
+}
+
+.Section3_Wrapper{
+    width: 100%;
+    height: 600px;
+    min-height: fit-content;
+    /*border: 2px solid green;*/
+    display: flex;
+    position: absolute;
+    /*margin-top: 70px;*/
+    top: 0;
+}
+.Fulltime-Inner{
+    width: 100%;
+    height: 100%;
+    /*border: 1px solid gold;*/
+    min-height: fit-content;
+
+}
+.Fulltime-Inner_Container{
+    width: 100%;
+    height: 100%;
+    /*border: 2px solid red;*/
+    min-height: fit-content;
+}
+
+.Fulltime_header{
+    height: 20%;
+    width: 100%;
+    position: relative;
+    font-size: 1.8em;
+    /*border: 2px solid green;*/
+    align-self: center;
+    text-align: center;
+    min-height: fit-content;
+
+    h1{
+        font-weight: 600;
+        background: linear-gradient(900deg,white,gold,white);
+        text-shadow: 1px 1px 2px gold;
+        color: transparent;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+        -webkit-background-clip: text;
+    }
+}
+
+.About_Main_Container{
+    height: 95%;
+    width: 100%;
+    /*border: 2px solid gold;*/
+    align-content: center;
+}
+.About_Main_Down_Text{
+    height: 20%;
+    width: 100%;
+    border: 2px solid blue;
+}
+
+.About_List{
+    height: 90%;
+    width: 94%;
+    /*border: 1px solid yellow;*/
+    justify-self: flex-start;
+    border-radius: 20px;
+    display: flex;
+    flex-direction: row-reverse;
+    margin-left: 20px;
+    align-items: center;
+    justify-content: center;
+    min-height: fit-content;
+}
+
+.Video_About_Description{
+    width: 40%;
+    height: 100%;
+    /*border: 2px solid red;*/
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.Video_About_Text{
+    width: 60%;
+    height: 95%;
+    /*border: 2px solid green;*/
+    min-height: fit-content;
+}
+.Main_Video_Description{
+    width: 95%;
+    height: 95%;
+    /*border: 1px solid white;*/
+    border-bottom-left-radius: 20px;
+    border-bottom-right-radius: 20px;
+    box-shadow: -1px 1px 5px 1px gold;
+}
+
+._Video-div{
+    width: 100%;
+    height: 80%;
+    /*border: 2px solid gray;*/
+
+}
+._Video_Video{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+._Video_figure{
+    width: 100%;
+    height: 20%;
+    background: black;
+    position: relative;
+    padding: 5px;
+}
+._Video_figure{
+    h3{
+        background: linear-gradient(gold,white);
+        background-clip: text;
+        color: transparent;
+        -webkit-background-clip: text;
+        font-size: 1.2em;
+    }
+}
+._durations{
+    position: absolute;
+    bottom: 10px;
+    right: 20px;
+}
+.Camera{
+    position: absolute;
+    top: 20px;
+    left: 30px;
+    font-size: 2em;
+    color: gold;
+    font-weight: 800;
+}
+
+.dive_Video_about_text_Wrapper{
+    width: 100%;
+    height: 100%;
+    /*border: 1px solid yellow;*/
+    border-radius: 20px;
+    padding: 0 10px;
+    min-height: fit-content;
+}
+
+.typingAlone{
+    h2{
+        font-size: 2em;
+        background: white;
+        background-clip: text;
+        color: transparent;
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+    }
+}
+
+.nav_Videos_Description{
+    width: 95%;
+    height: 300px;
+    margin-top: 15px;
+    border: 1px solid gold;
+    border-radius: 10px;
+    background: linear-gradient(rgba(0, 0, 0, 0.12),rgba(0,0,0,.8), rgba(0, 0, 0, 0.8)),url("asset/img/Check.jfif") center center no-repeat;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 5px;
+    /*backdrop-filter: blur(20px);*/
+}
+
+.nav_Videos_Description{
+    h4{
+        font-size: 1.2em;
+        font-weight: 600;
+        background: linear-gradient(white,aqua);
+        color: transparent;
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+
+    }
+}
+
+.Typing{
+    width: 95%;
+    height: 70px;
+    background: rgba(3, 0, 0, 0.88);
+    border-radius: 15px;
+    margin-top: 20px;
+    padding-left:  12px;
+    align-content: center;
+    box-shadow: -1px 1px 5px 1px gold;
+    color: gold;
+
+
+    h1{
+        font-weight: 600;
+        font-size: 1.5em;
+    }
+}
+

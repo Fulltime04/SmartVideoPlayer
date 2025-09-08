@@ -1,0 +1,304 @@
+*{
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+    
+}
+
+@media only screen and (max-width: 1029.33px) {
+    .nav_Videos_Description{
+        h4{
+            font-size: 1.1em;
+        }
+    }
+
+    .Typing{
+        h1{
+            font-size: 1.2em;
+        }
+    }
+
+    .typingAlone{
+        h2{
+            font-size: 1.4em;
+        }
+    }
+
+    .Fulltime_header{
+        h1{
+            font-size: 1.9em;
+        }
+    }
+
+
+    ._Video_figure{
+        h3{
+            font-size: 1em;
+            padding-bottom: 5px;
+        }
+    }
+}
+
+@media only screen and (max-width: 970px) {
+    .Camera{
+        font-size: 1.2em !important;
+        top: 70px;
+        left: 80px;
+    }
+}
+
+@media only screen and (max-width: 820px){
+    .Typing{
+        height: 60px;
+
+        h1{
+            font-size: .9em;
+        }
+    }
+
+    .typingAlone{
+        h2{
+            font-size: 1.2em;
+        }
+    }
+
+    .nav_Videos_Description{
+        h4{
+            font-size: 1em !important;
+        }
+    }
+
+}
+
+@media only screen and (max-width: 768px){
+    .typingAlone{
+        h2{
+            text-align: center;
+        }
+    }
+.About_List{
+    flex-direction: column-reverse;
+    gap: 10px;
+}
+
+    .Video_About_Description{
+        width: 75%;
+        height: 350px;
+    }
+
+    .Video_About_Text{
+        width: 100%;
+        height: 300px;
+    }
+
+    .Camera{
+        font-size: 1em !important;
+       display: none;
+    }
+
+    .nav_Videos_Description{
+        h4{
+            font-size: 1.3em !important;
+        }
+    }
+}
+@media only screen and (max-width: 718px){
+    .Fulltime_header{
+        h1{
+            width: 85%;
+            justify-self: center;
+        }
+    }
+}
+
+@media only screen and (max-width: 700px){
+    .Fulltime_header{
+        height: fit-content;
+        h1{
+            width: 80%;
+            font-size: 1.6em;
+        }
+
+        .Revolutionizing{
+            font-size: .8em !important;
+        }
+    }
+}
+@media only screen and (max-width: 655px){
+    .nav_Videos_Description{
+        h4{
+            font-size: 1.1em !important;
+        }
+    }
+}
+
+@media only screen and (max-width: 618px){
+    .Fulltime_header{
+        padding: 5px;
+        h1{
+            width: 90%;
+            font-size: 1.5em;
+        }
+
+        .Revolutionizing{
+            font-size: .6em !important;
+        }
+
+    }
+}
+
+@media only screen and (max-width: 550px) {
+    .Fulltime_header{
+        h1{
+            font-size: 1.4em !important;
+        }
+
+    }
+}
+@media only screen and (max-width: 520px) {
+    .nav_Videos_Description{
+        h4{
+            font-size: 1em !important;
+        }
+    }
+}
+
+@media only screen and (max-width: 515px) {
+    .Fulltime_header{
+        margin-top: 25px;
+    }
+
+    .Video_About_Description{
+        width: 95%;
+        height: 350px;
+    }
+}
+@media only screen and (max-width: 505px){
+    .Fulltime_header{
+        margin-top: 20px;
+        h1{
+            font-size: 1.2em !important;
+            font-weight: 500;
+        }
+    }
+
+    .Typing{
+        height: 50px;
+    }
+.typingAlone{
+    h2{
+        font-size: .9em !important;
+    }
+}
+
+}
+
+@media only screen and (max-width: 425px){
+    .Fulltime_header{
+        margin-top: 25px;
+        h1{
+            font-size: 1em !important;
+            font-weight: 500;
+        }
+    }
+}
+
+@media only screen and (max-width: 420px){
+    .nav_Videos_Description{
+        h4{
+            font-size: .9em !important;
+        }
+    }
+
+    ._Video_figure{
+        h3{
+            font-size: .8em;
+        }
+
+        p{
+            font-size: .8em;
+        }
+
+        div{
+            font-size: .8em;
+        }
+    }
+}
+@media only screen and (max-width: 414px) {
+    .Fulltime_header{
+        margin-top: 35px;
+    }
+}
+@media only screen and (max-width: 400px) {
+    .Typing{
+        height: 40px;
+        h1{
+            font-size: .7em;
+        }
+    }
+    .Fulltime_header{
+        margin-top: 30px !important;
+    }
+}
+
+@media only screen and (max-width: 385px){
+    .Fulltime_header{
+        margin-top: 40px !important;
+
+        .Revolutionizing{
+            font-size: .5em !important;
+        }
+    }
+}
+
+@media only screen and (max-width: 378px) {
+    .typingAlone{
+        h2{
+            width: 80%;
+            font-size: .8em;
+            justify-self: center;
+        }
+    }
+
+    .nav_Videos_Description{
+        height: 250px !important;
+    }
+}
+
+@media only screen and (max-width: 362px){
+.Fulltime_header{
+    margin-top: 30px !important;
+
+    h1{
+        width: 100%;
+    }
+}
+}
+
+@media only screen and (max-width: 330px){
+    .nav_Videos_Description{
+        h4{
+            font-size: .7em !important;
+        }
+    }
+
+    .Video_About_Text{
+        width: 100%;
+        height: 200px;
+    }
+}
+
+@media only screen and (max-width: 320px){
+    .Fulltime_header{
+        margin-top: 18px !important;
+    }
+.nav_Videos_Description{
+    height: 200px !important;
+}
+}
+
+@media only screen and (max-width: 315px){
+    .Fulltime_header{
+        margin-top: 0 !important;
+    }
+}

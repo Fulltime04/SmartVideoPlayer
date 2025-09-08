@@ -1,0 +1,488 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fulltime Video Player</title>
+    <style>
+        :root {
+            --primary-ice: #a0d2eb;
+            --deep-blue: #494d5f;
+            --frost-white: #f0f4fa;
+            --light-blue: #d0bdf4;
+            --shadow-blue: #7a7da3;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background: linear-gradient(135deg, var(--deep-blue), #2a2f4f);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            overflow: hidden;
+            position: relative;
+
+        }
+
+        .snowflake {
+            position: absolute;
+            top: -10px;
+            color: rgba(255, 255, 255, 0.8);
+            font-size: 1rem;
+            animation: snowfall linear infinite;
+            z-index: 1;
+        }
+
+        @keyframes snowfall {
+            to {
+                transform: translateY(100vh);
+            }
+        }
+
+        .player-container {
+            width: 80%;
+            max-width: 1000px;
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: 0 20px 30px rgba(0, 0, 0, 0.4);
+            position: relative;
+            z-index: 2;
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(8px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .video-container {
+            width: 100%;
+            position: relative;
+            aspect-ratio: 16/9;
+        }
+
+        video {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
+
+        .controls {
+            display: flex;
+            flex-direction: column;
+            padding: 16px;
+            background: rgba(15, 23, 42, 0.7);
+            backdrop-filter: blur(16px);
+        }
+
+        .progress-container {
+            width: 100%;
+            height: 6px;
+            background: rgba(255, 255, 255, 0.2);
+            margin-bottom: 12px;
+            border-radius: 3px;
+            cursor: pointer;
+        }
+
+        .progress-bar {
+            height: 100%;
+            background: linear-gradient(90deg, var(--primary-ice), var(--light-blue));
+            border-radius: 3px;
+            width: 0%;
+            position: relative;
+        }
+
+        .buttons-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .left-controls, .right-controls {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        button {
+            background: transparent;
+            border: none;
+            color: var(--frost-white);
+            cursor: pointer;
+            font-size: 18px;
+            transition: all 0.2s;
+            opacity: 0.8;
+        }
+
+        button:hover {
+            opacity: 1;
+            transform: scale(1.1);
+        }
+
+        .volume-container {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .volume-slider {
+            width: 80px;
+            height: 4px;
+            background: rgba(255, 255, 255, 0.2);
+            border-radius: 2px;
+            cursor: pointer;
+            opacity: 0;
+            transition: opacity 0.3s;
+        }
+
+        .volume-container:hover .volume-slider {
+            opacity: 1;
+        }
+
+        .volume-slider::-webkit-slider-thumb {
+            -webkit-appearance: none;
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background: var(--primary-ice);
+        }
+
+        .time-display {
+            color: var(--frost-white);
+            font-size: 14px;
+            opacity: 0.8;
+        }
+
+        .fullscreen-btn {
+            margin-left: 12px;
+        }
+
+        .player-header {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            text-align: center;
+            padding: 1rem 0;
+            z-index: 100;
+        }
+
+        .player-header h1 {
+            color: var(--frost-white);
+            font-size: 3rem;
+            text-shadow: 0 2px 10px rgba(0,0,0,0.5);
+            margin: 0;
+            position: relative;
+            z-index: 2;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        .header-title span {
+            transition: all 0.3s ease;
+        }
+
+        .header-title:hover span {
+            transform: translateY(-5px);
+        }
+
+        .flicker {
+            color: var(--primary-ice);
+            animation: flicker 2s infinite alternate;
+        }
+
+        @keyframes flicker {
+            0%, 19%, 21%, 23%, 25%, 54%, 56%, 100% {
+                opacity: 1;
+                text-shadow:
+                        0 0 5px var(--light-blue),
+                        0 0 10px var(--light-blue),
+                        0 0 20px var(--primary-ice);
+            }
+            20%, 22%, 24%, 55% {
+                opacity: 0.6;
+                text-shadow: none;
+            }
+        }
+
+        .play-icon-container {
+            font-size: 1.5rem;
+            transform-origin: center;
+            animation: pulse 1s infinite alternate;
+            opacity: 0.8;
+        }
+
+        .highlights-container {
+            display: flex;
+            gap: 15px;
+            margin-top: 15px;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        .highlight {
+            background: rgba(255,255,255,0.1);
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            backdrop-filter: blur(5px);
+            border: 1px solid rgba(255,255,255,0.2);
+            animation: float 3s ease-in-out infinite;
+        }
+
+        .highlight:nth-child(1) { animation-delay: 0s; }
+        .highlight:nth-child(2) { animation-delay: 0.5s; }
+        .highlight:nth-child(3) { animation-delay: 1s; }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-8px); }
+        }
+
+        .header-gradient {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg,
+            rgba(64,92,128,0.8) 0%,
+            rgba(15,23,42,0.9) 50%,
+            rgba(0,0,0,0.9) 100%);
+            z-index: 1;
+            pointer-events: none;
+            animation: gradientShift 15s ease infinite;
+            background-size: 400% 400%;
+        }
+
+        @keyframes gradientShift {
+            0% { background-position: 0% 50% }
+            50% { background-position: 100% 50% }
+            100% { background-position: 0% 50% }
+        }
+
+        .icy-effect {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            pointer-events: none;
+            mix-blend-mode: overlay;
+            opacity: 0.5;
+            background: radial-gradient(circle at 50% 50%,
+            rgba(160, 210, 235, 0.2) 0%,
+            rgba(160, 210, 235, 0) 70%);
+            animation: pulse 8s infinite alternate;
+        }
+
+        @keyframes pulse {
+            0% { transform: scale(1); opacity: 0.3; }
+            100% { transform: scale(1.05); opacity: 0.5; }
+        }
+
+        .cta-container {
+            text-align: center;
+            margin-bottom: 2rem;
+            position: relative;
+            z-index: 10;
+        }
+
+        .intro-text {
+            color: var(--frost-white);
+            font-size: 1.2rem;
+            max-width: 600px;
+            margin: 0 auto 1.5rem;
+            text-shadow: 0 2px 5px rgba(0,0,0,0.5);
+        }
+
+        .cta-btn {
+            background: linear-gradient(135deg, var(--primary-ice), var(--light-blue));
+            color: var(--deep-blue);
+            border: none;
+            padding: 0.8rem 2rem;
+            border-radius: 50px;
+            font-size: 1.1rem;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+        }
+
+        .cta-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 20px rgba(0,0,0,0.3);
+        }
+    </style>
+</head>
+<body>
+<!-- Header with logo -->
+<header class="player-header">
+    <div class="header-gradient"></div>
+    <h1 class="header-title">
+        <span>Fulltime</span>
+        <span class="flicker">Smart</span>
+        <span>Video Player</span>
+        <div class="play-icon-container">▶</div>
+    </h1>
+    <div class="highlights-container">
+        <div class="highlight">4K Resolution</div>
+        <div class="highlight">AI Enhancement</div>
+        <div class="highlight">Crystal Audio</div>
+    </div>
+</header>
+
+<!-- Snowflakes background -->
+<div id="snowflakes"></div>
+
+<div class="cta-container">
+    <p class="intro-text">Experience the ultimate winter-themed video player with crystal clear playback and frosty aesthetics</p>
+    <button id="goto-player" class="cta-btn">Launch Player</button>
+</div>
+
+<!-- Video player container -->
+<div class="player-container">
+    <div class="icy-effect"></div>
+    <div class="video-container">
+        <video id="video" poster="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/04973e6b-ba7d-4a87-87f5-6cccf28e57ec.png" alt="Default video poster image showing icy mountains with the text 'Frost Video Player'">
+            <source src="your-video.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+    </div>
+
+    <div class="controls">
+        <div class="progress-container" id="progress-container">
+            <div class="progress-bar" id="progress-bar"></div>
+        </div>
+
+        <div class="buttons-container">
+            <div class="left-controls">
+                <button id="play-btn" title="Play/Pause">▶</button>
+                <button id="mute-btn" title="Mute/Unmute">🔊</button>
+                <div class="volume-container">
+                    <input type="range" class="volume-slider" id="volume-slider" min="0" max="1" step="0.1" value="1">
+                </div>
+                <span class="time-display" id="time-display">00:00 / 00:00</span>
+            </div>
+
+            <div class="right-controls">
+                <button id="fs-btn" class="fullscreen-btn" title="Fullscreen">⛶</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    // Create snowflakes
+    const snowflakesContainer = document.getElementById('snowflakes');
+    const snowflakeCount = 30;
+
+    for (let i = 0; i < snowflakeCount; i++) {
+        const snowflake = document.createElement('div');
+        snowflake.classList.add('snowflake');
+        snowflake.innerHTML = '❄';
+        snowflake.style.left = `${Math.random() * 100}vw`;
+        snowflake.style.animationDuration = `${5 + Math.random() * 10}s`;
+        snowflake.style.animationDelay = `${Math.random() * 5}s`;
+        snowflake.style.opacity = Math.random();
+        snowflakesContainer.appendChild(snowflake);
+    }
+
+    // Video player functionality
+    const video = document.getElementById('video');
+    const playBtn = document.getElementById('play-btn');
+    const muteBtn = document.getElementById('mute-btn');
+    const volumeSlider = document.getElementById('volume-slider');
+    const progressBar = document.getElementById('progress-bar');
+    const progressContainer = document.getElementById('progress-container');
+    const timeDisplay = document.getElementById('time-display');
+    const fsBtn = document.getElementById('fs-btn');
+
+    // Play/Pause toggle
+    playBtn.addEventListener('click', () => {
+        if (video.paused) {
+            video.play();
+            playBtn.innerHTML = '⏸';
+        } else {
+            video.pause();
+            playBtn.innerHTML = '▶';
+        }
+    });
+
+    // Mute/Unmute toggle
+    muteBtn.addEventListener('click', () => {
+        video.muted = !video.muted;
+        muteBtn.innerHTML = video.muted ? '🔇' : '🔊';
+        volumeSlider.value = video.muted ? 0 : video.volume;
+    });
+
+    // Volume control
+    volumeSlider.addEventListener('input', () => {
+        video.volume = volumeSlider.value;
+        video.muted = volumeSlider.value == 0;
+        muteBtn.innerHTML = video.volume == 0 ? '🔇' : '🔊';
+    });
+
+    // Progress bar update
+    video.addEventListener('timeupdate', () => {
+        const percent = (video.currentTime / video.duration) * 100;
+        progressBar.style.width = `${percent}%`;
+
+        // Update time display
+        const currentMinutes = Math.floor(video.currentTime / 60);
+        const currentSeconds = Math.floor(video.currentTime % 60).toString().padStart(2, '0');
+        const durationMinutes = Math.floor(video.duration / 60);
+        const durationSeconds = Math.floor(video.duration % 60).toString().padStart(2, '0');
+
+        timeDisplay.textContent = `${currentMinutes}:${currentSeconds} / ${durationMinutes}:${durationSeconds}`;
+    });
+
+    // Click on progress bar to seek
+    progressContainer.addEventListener('click', (e) => {
+        const rect = progressContainer.getBoundingClientRect();
+        const pos = (e.clientX - rect.left) / rect.width;
+        video.currentTime = pos * video.duration;
+    });
+
+    // Fullscreen toggle
+    fsBtn.addEventListener('click', () => {
+        if (!document.fullscreenElement) {
+            document.querySelector('.player-container').requestFullscreen();
+            fsBtn.innerHTML = '⛶';
+        } else {
+            document.exitFullscreen();
+            fsBtn.innerHTML = '⛶';
+        }
+    });
+
+    // When video ends
+    video.addEventListener('ended', () => {
+        playBtn.innerHTML = '▶';
+        progressBar.style.width = '0%';
+    });
+
+    // Goto Player button
+    document.getElementById('goto-player').addEventListener('click', () => {
+        document.querySelector('.player-container').scrollIntoView({
+            behavior: 'smooth'
+        });
+    });
+
+    // Load metadata to show duration
+    video.addEventListener('loadedmetadata', () => {
+        const durationMinutes = Math.floor(video.duration / 60);
+        const durationSeconds = Math.floor(video.duration % 60).toString().padStart(2, '0');
+        timeDisplay.textContent = `00:00 / ${durationMinutes}:${durationSeconds}`;
+    });
+</script>
+</body>
+</html>
+
