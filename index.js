@@ -1083,7 +1083,9 @@ function firstSection() {
     let sec = document.querySelector("._Main_Session");
     let firstSec = document.querySelector(".Main_Section_Container")
 let sectonsVideo = document.querySelector(".Video_Container")
+
     pageBtn.forEach(btn => {
+        alert("Praise the Lord")
         let descriptionsection = document.querySelector(".description-section")
         btn.addEventListener("click", function () {
             let btnText = this.nextElementSibling.textContent.trim();
