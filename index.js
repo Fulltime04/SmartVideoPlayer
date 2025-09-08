@@ -328,6 +328,7 @@ function ThirdFunction(){
 }
 
 let pageBtn = document.querySelectorAll(".page");
+console.log(pageBtn)
 
 
 
@@ -351,6 +352,7 @@ shake_ing.forEach(sec => {
 let Page = document.querySelector(".Page");
 
 Page.addEventListener("click", function(){
+
     if (this) {
         if(!document.body.contains(ShakesSphere)){
             document.body.appendChild(ShakesSphere)
