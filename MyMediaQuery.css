@@ -590,7 +590,7 @@
     }
 
     .letWatch{
-        font-size: 1.8em !important;
+        font-size: 1em !important;
     }
 
     .Uplaod_div1_Container{
@@ -617,14 +617,14 @@
         display: flex !important;
         align-items: center !important;
         justify-content: center;
-        font-size: 1.5em !important;
+        font-size: .7em !important;
         /*border: 2px solid white !important;*/
     }
 }
 
 @media only screen and (max-width: 550px) {
     .letWatch{
-        font-size: 1.4em !important;
+        font-size: 1em !important;
     }
 
     .strongUpload{
@@ -662,7 +662,7 @@
     }
 
 .letWatch{
-    font-size: 1em !important;
+    font-size: .7em !important;
 }
 }
 

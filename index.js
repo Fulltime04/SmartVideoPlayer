@@ -277,6 +277,13 @@ function Pages(x,y,callback){
     if(callback){
         page.Ondisplay()
     }
+    let videoscrolled = document.querySelector(".Video_Container")
+
+    videoscrolled.scrollTo({
+        top: 0,
+        behavior: "smooth",
+    })
+    document.querySelector("body").scroll(0,0)
 
 }
 
@@ -1088,6 +1095,11 @@ let sectonsVideo = document.querySelector(".Video_Container")
         alert("Praise the Lord")
         let descriptionsection = document.querySelector(".description-section")
         btn.addEventListener("click", function () {
+            document.querySelector(".Video_Container").scrollTo({
+                top: 0,
+                behavior: "smooth",
+            })
+            document.querySelector(".Video_Container").scroll(0,0)
             let btnText = this.nextElementSibling.textContent.trim();
             if (btnText === "VList") {
                 firstSec.classList.add("firstSec")
