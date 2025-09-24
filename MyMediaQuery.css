@@ -718,6 +718,9 @@
 .delete_btn{
     left: 0;
 }
+    .greetings_Video{
+        background: transparent;
+    }
 }
 
 @media only screen and (max-width: 980.33px) {
@@ -730,6 +733,8 @@
         -webkit-text-fill-color: white !important;
         padding: 5px;
     }
+
+
 }
 @media only screen and (max-width: 950px) {
     .VideoDiv{
@@ -1108,6 +1113,12 @@
         top: 20px;
 
     }
+    .VideoLibrary_Welcome{
+        p{
+            height: fit-content;
+            padding: 6px;
+        }
+    }
 }
 
 @media only screen and (max-width: 435px) {
@@ -1118,6 +1129,7 @@
         top: 40px;
 
     }
+
 }
 @media only screen and (max-width: 400px) {
     .XPlayer{
