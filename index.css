@@ -183,7 +183,7 @@ body{
     align-items: center;
     justify-content: center;
     /*margin-top: 40px;*/
-    /*padding-top: 30px;*/
+    padding-bottom: 1rem;
     position: relative;
     /*border: 2px solid red;*/
     color: white;
@@ -195,7 +195,7 @@ body{
 .description-section{
     width: 90%;
     min-height: fit-content !important;
-    height: 90%;
+    height: 95%;
     background: linear-gradient(#030809, rgba(255, 255, 0, 0.09));
     border: 1px solid yellow;
     border-radius: 15px;

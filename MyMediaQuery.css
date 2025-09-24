@@ -371,12 +371,7 @@
     .description{
         font-size: .7em !important;
     }
-    .description-section{
-        height: 80% !important;
-        min-height: fit-content !important;
-        /*overflow: hidden;*/
-        /*overflow-y: auto;*/
-    }
+
 
 
     .Features{
@@ -569,9 +564,7 @@
         padding: 10px;
         flex-direction: column;
     }
-    .first_description_section{
-        height: 85% !important;
-    }
+
     @keyframes transforming{
         from{
 
