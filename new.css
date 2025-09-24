@@ -103,7 +103,7 @@
 ._Video-div{
     width: 100%;
     height: 80%;
-    /*border: 2px solid gray;*/
+    overflow: hidden;
 
 }
 ._Video_Video{
