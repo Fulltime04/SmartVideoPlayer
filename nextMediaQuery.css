@@ -165,7 +165,7 @@
 
 @media only screen and (max-width: 515px) {
     .Fulltime_header{
-        margin-top: 25px;
+        /*margin-top: 25px;*/
     }
 
     .Video_About_Description{
@@ -175,7 +175,7 @@
 }
 @media only screen and (max-width: 505px){
     .Fulltime_header{
-        margin-top: 20px;
+        /*margin-top: 20px;*/
         h1{
             font-size: 1.2em !important;
             font-weight: 500;
@@ -195,7 +195,7 @@
 
 @media only screen and (max-width: 425px){
     .Fulltime_header{
-        margin-top: 25px;
+        /*margin-top: 25px;*/
         h1{
             font-size: 1em !important;
             font-weight: 500;
@@ -226,7 +226,7 @@
 }
 @media only screen and (max-width: 414px) {
     .Fulltime_header{
-        margin-top: 35px;
+        /*margin-top: 35px;*/
     }
 }
 @media only screen and (max-width: 400px) {
@@ -237,13 +237,13 @@
         }
     }
     .Fulltime_header{
-        margin-top: 30px !important;
+        /*margin-top: 30px !important;*/
     }
 }
 
 @media only screen and (max-width: 385px){
     .Fulltime_header{
-        margin-top: 40px !important;
+        /*margin-top: 40px !important;*/
 
         .Revolutionizing{
             font-size: .5em !important;
@@ -267,7 +267,7 @@
 
 @media only screen and (max-width: 362px){
 .Fulltime_header{
-    margin-top: 30px !important;
+    /*margin-top: 30px !important;*/
 
     h1{
         width: 100%;
@@ -290,7 +290,7 @@
 
 @media only screen and (max-width: 320px){
     .Fulltime_header{
-        margin-top: 18px !important;
+        /*margin-top: 18px !important;*/
     }
 .nav_Videos_Description{
     height: 200px !important;

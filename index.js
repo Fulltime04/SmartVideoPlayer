@@ -283,7 +283,12 @@ function Pages(x,y,callback){
         top: 0,
         behavior: "smooth",
     })
+    videoscrolled.scroll(0,0)
     document.querySelector("body").scroll(0,0)
+    document.querySelector("body").scrollTo({
+        top: 0,
+        behavior: "smooth",
+    })
 
 }
 
@@ -359,11 +364,15 @@ shake_ing.forEach(sec => {
 let Page = document.querySelector(".Page");
 
 Page.addEventListener("click", function(){
-
+    window.scrollTo({
+        top: 0,
+        behavior: "smooth"
+    })
     if (this) {
         if(!document.body.contains(ShakesSphere)){
             document.body.appendChild(ShakesSphere)
         }
+
         _Main_Session.innerHTML = `
 
    <section class="description-section">
@@ -1092,17 +1101,18 @@ function firstSection() {
 let sectonsVideo = document.querySelector(".Video_Container")
 
     pageBtn.forEach(btn => {
-        alert("Praise the Lord")
+
+        let sec = document.querySelector("._Main_Session");
         let descriptionsection = document.querySelector(".description-section")
         btn.addEventListener("click", function () {
-            document.querySelector(".Video_Container").scrollTo({
+            window.scrollTo({
                 top: 0,
-                behavior: "smooth",
-            })
-            document.querySelector(".Video_Container").scroll(0,0)
+                behavior: "smooth"
+            });
+            document.body.scroll(0,0)
             let btnText = this.nextElementSibling.textContent.trim();
             if (btnText === "VList") {
-                firstSec.classList.add("firstSec")
+                // firstSec.classList.add("firstSec")
                 Pages(this, sec, this);
                 if (!document.body.contains(ShakesSphere)) {
                     document.body.appendChild(ShakesSphere)
@@ -1116,12 +1126,16 @@ let sectonsVideo = document.querySelector(".Video_Container")
 
             document.body.append(ShakesSphere)
             firstSec.classList.remove("firstSec")
-            Pages(this, _Main_Session, this)
+            Pages(this, sec, this)
         })
     });
 
     let playIcon = document.querySelectorAll(".play")
 playIcon.forEach(icon => {
+    window.scrollTo({
+        top: 0,
+        behavior: "smooth"
+    })
     icon.addEventListener("click", function () {
         let VideoPlayerWrapperRemove = document.querySelector(".VideoPlayerWrapper");
         if (document.body.contains(VideoPlayerWrapperRemove)) {
