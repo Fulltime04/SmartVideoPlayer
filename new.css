@@ -93,7 +93,7 @@
 .Main_Video_Description{
     width: 95%;
     height: 95%;
-    border: 1px solid white;
+    /*border: 1px solid white;*/
     min-height: fit-content;
     border-bottom-left-radius: 20px;
     border-bottom-right-radius: 20px;

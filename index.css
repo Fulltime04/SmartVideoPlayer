@@ -5,6 +5,8 @@
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     transition: 0.5s;
     user-select: none;
+    overflow-x: hidden;
+
 }
 
 body{
@@ -72,6 +74,9 @@ body{
     0% { transform: scale(.7); opacity: 0.3; }
     100% { transform: scale(1); opacity: 0.5; }
 }
+.ShakesSphere{
+    width: 100%;
+}
 
 .Video_Container{
     width: 100%;
@@ -82,7 +87,7 @@ body{
     align-items: center;
     justify-content: flex-start;
     position: relative;
-    /*padding-top: 110px;*/
+    padding-top: 110px;
     /*border: 2px solid blue;*/
     background: rgba(0, 0, 0, 0.76);
     backdrop-filter: blur(20px);
@@ -167,32 +172,25 @@ body{
     justify-content: center;
     padding-bottom: 20px;
 }
-.Main_Section_Container{
-    height: 100%;
-    width: 100%;
-    /*border: 2px solid pink;*/
-    padding-top: 90px;
-    /*margin-top: 60px;*/
-    min-height: fit-content !important;
 
-}
 
 
 ._Main_Session{
     width: 100%;
     min-height:  fit-content !important;
     height: 100%;
-    padding-top: 20px;
     display: flex;
-    align-items: flex-start;
+    align-items: center;
     justify-content: center;
+    /*margin-top: 40px;*/
+    /*padding-top: 30px;*/
     position: relative;
-    /*border: 2px solid red;*/
+    border: 2px solid red;
     color: white;
 }
-/*::-webkit-scrollbar{*/
-/*    display: none;*/
-/*}*/
+::-webkit-scrollbar{
+    display: none;
+}
 
 .description-section{
     width: 90%;
@@ -201,6 +199,7 @@ body{
     background: linear-gradient(#030809, rgba(255, 255, 0, 0.09));
     border: 1px solid yellow;
     border-radius: 15px;
+    justify-self: center;
 
 }
 

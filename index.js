@@ -32,7 +32,7 @@ function generateSnowflakes() {
         snowflake.style.animationDuration = `${5 + Math.random() * 10}s`;
         snowflake.style.animationDelay = `${Math.random() * 5}s`;
         snowflake.style.opacity = Math.random();
-        ShakesSphere.appendChild(snowflake);
+        document.body.appendChild(snowflake);
     }
 }
 
@@ -40,7 +40,7 @@ function generateSnowflakes() {
 generateSnowflakes();
 
 // Run again if screen size changes
-window.addEventListener("resize", generateSnowflakes);
+// window.addEventListener("resize", generateSnowflakes);
 
 function setSnowDistance() {
     //
@@ -1125,7 +1125,6 @@ let sectonsVideo = document.querySelector(".Video_Container")
             }
 
             document.body.append(ShakesSphere)
-            firstSec.classList.remove("firstSec")
             Pages(this, sec, this)
         })
     });
