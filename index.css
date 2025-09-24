@@ -185,7 +185,7 @@ body{
     /*margin-top: 40px;*/
     /*padding-top: 30px;*/
     position: relative;
-    border: 2px solid red;
+    /*border: 2px solid red;*/
     color: white;
 }
 ::-webkit-scrollbar{
